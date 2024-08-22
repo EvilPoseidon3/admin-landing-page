@@ -3,9 +3,9 @@ body {
   display: grid;
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1fr 9fr;
   grid-template-areas: 
   "sidebar header"
   "sidebar maincontent";
@@ -56,7 +56,7 @@ body {
   background-color: white;
   grid-area: header;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3fr 4fr;
   grid-template-areas:
   "searchbar name"
@@ -64,27 +64,121 @@ body {
   gap: 15px;
 }
 
-.header > * {
-  margin: 25px;
+.profile-pic {
+height: 80px;
+width: auto;
 }
 
-.header > .searchbar{
- grid-area: searchbar;
+.searchbar {
+  align-self: center;
+  justify-self: center;
+  grid-area: searchbar;
+  display: flex;
+  width: 100%;
+  padding-left: 60px;
+}
+
+.searchbar > i {
+  justify-self: center;
+  align-self: center;
+}
+
+
+.searchbar > input{
+ background-color: rgb(238, 238, 238);
+ border-radius: 20px;
+ border: none;
+ height: 35px;
+ padding: 10px;
+ padding-left: 20px;
+ margin-left:  15px;
+ flex-grow: 1;
 }
 
 .header > .profile-display{
   grid-area: profile;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "profile-picture hithere"
+  "profile-picture name";
+  padding-left: 30px;
 }
 
-.header > .profile-name{
+.profile-display > img{
+  grid-area: profile-picture;
+  justify-self: center;
+  align-self: center;
+}
+
+.profile-display > p {
+  grid-area: hithere;
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
+
+.profile-display > h3{
   grid-area: name;
+  align-self: flex-start;
+  margin-top: 2px;
+  font-size:30px;
+}
+
+.profile-name{
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-name > * {
+  padding: 10px;
+}
+
+.profile-name > i {
+  color: blue;
 }
 
 .header > .buttons{
   grid-area: buttons;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons > * {
+  margin: 20px;
+  /* flex: 1; */
+  height: 45px;
+  border-radius: 30px;
+  border: none;
+  background-color: blue;
+  font-weight: 900;
+  color: white;
+  font-size: 17px;
+  width: 10ch;
 }
 
 .maincontent {
   background-color: lightgray;
   grid-area: maincontent;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  grid-template-rows: 2fr 3fr;
+  grid-template-areas: 
+  "projects announce"
+  "projects trending";
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.annoucements {
+  grid-area: announce;
+}
+
+.trending {
+  grid-area: trending;
 }
